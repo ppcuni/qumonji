@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class EarthMeshBuilder : EarthMesh
@@ -54,5 +54,21 @@ public class EarthMeshBuilder : EarthMesh
         Filter.sharedMesh.name = "Earth";
 
         GetComponent<MeshCollider>().sharedMesh = Filter.mesh;
+    }
+
+    private void Add(int index)
+    {
+        Mesh mesh = Filter.mesh;
+
+        vertices[mesh.triangles[index * 3]].y += 0.05f;
+
+        mesh.Clear();
+
+        mesh.vertices = vertices;
+        mesh.uv = uvs;
+        mesh.normals = normals;
+        mesh.triangles = indices;
+
+        mesh.RecalculateBounds();
     }
 }
