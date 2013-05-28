@@ -56,11 +56,65 @@ public class EarthMeshBuilder : EarthMesh
         GetComponent<MeshCollider>().sharedMesh = Filter.mesh;
     }
 
-    private void Add(int index)
+    private void UP1(int index)
     {
         Mesh mesh = Filter.mesh;
 
         vertices[mesh.triangles[index * 3]].y += 0.05f;
+
+        mesh.Clear();
+
+        mesh.vertices = vertices;
+        mesh.uv = uvs;
+        mesh.normals = normals;
+        mesh.triangles = indices;
+
+        mesh.RecalculateBounds();
+    }
+
+    private void UP2(int index)
+    {
+        Mesh mesh = Filter.mesh;
+
+        vertices[mesh.triangles[index * 3]].y += 0.1f;
+        vertices[mesh.triangles[index * 3 + 1]].y += 0.1f;
+        vertices[mesh.triangles[index * 3 + 2]].y += 0.1f;
+        vertices[mesh.triangles[index * 3 + 5]].y += 0.1f;
+
+        mesh.Clear();
+
+        mesh.vertices = vertices;
+        mesh.uv = uvs;
+        mesh.normals = normals;
+        mesh.triangles = indices;
+
+        mesh.RecalculateBounds();
+    }
+
+    private void DOWN1(int index)
+    {
+        Mesh mesh = Filter.mesh;
+
+        vertices[mesh.triangles[index * 3]].y -= 0.1f;
+
+        mesh.Clear();
+
+        mesh.vertices = vertices;
+        mesh.uv = uvs;
+        mesh.normals = normals;
+        mesh.triangles = indices;
+
+        mesh.RecalculateBounds();
+    }
+
+    private void DOWN2(int index)
+    {
+        Mesh mesh = Filter.mesh;
+
+        vertices[mesh.triangles[index * 3]].y -= 0.1f;
+        vertices[mesh.triangles[index * 3 + 1]].y -= 0.1f;
+        vertices[mesh.triangles[index * 3 + 2]].y -= 0.1f;
+        vertices[mesh.triangles[index * 3 + 5]].y -= 0.1f;
 
         mesh.Clear();
 
