@@ -3,23 +3,17 @@ using System.Collections;
 
 public class TitleController : MonoBehaviour
 {
-	void Start()
-    {
-	
-	}
-
-	void Update()
-    {
-	
-	}
-
     void OnGUI()
     {
-        GUI.Box(new Rect(10, 10, 100, 60), "gumonji");
+        GUI.BeginGroup(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 50, 100, 100));
 
-        if (GUI.Button(new Rect(20, 40, 80, 20), "Start"))
+        GUI.Box(new Rect(0, 0, 100, 100), "gumonji");
+
+        if (GUI.Button (new Rect (10,40,80,30), "start"))
         {
             Application.LoadLevel("World");
         }
+
+        GUI.EndGroup();
     }
 }
