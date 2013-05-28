@@ -52,5 +52,7 @@ public class EarthMeshBuilder : EarthMesh
         mesh.RecalculateBounds();
 
         Filter.sharedMesh.name = "Earth";
+
+        GetComponent<MeshCollider>().sharedMesh = Filter.mesh;
     }
 }
