@@ -44,6 +44,8 @@ public class WorldController : MonoBehaviour
                         break;
                 }
             }
+
+            earth.SendMessage("DisplayEditGrid", hitInfo.triangleIndex);
         }
     }
 

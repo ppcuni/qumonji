@@ -102,4 +102,17 @@ public class EarthMeshBuilder : EarthMesh
         GetComponent<MeshCollider>().sharedMesh = null;
         GetComponent<MeshCollider>().sharedMesh = Filter.mesh;
     }
+
+    private void DisplayEditGrid(int index)
+    {
+        Mesh mesh = Filter.mesh;
+
+        var lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.SetVertexCount(5);
+        lineRenderer.SetPosition(0, vertices[mesh.triangles[index * 3]]);
+        lineRenderer.SetPosition(1, vertices[mesh.triangles[index * 3 + 1]]);
+        lineRenderer.SetPosition(2, vertices[mesh.triangles[index * 3 + 2]]);
+        lineRenderer.SetPosition(3, vertices[mesh.triangles[index * 3 + 5]]);
+        lineRenderer.SetPosition(4, vertices[mesh.triangles[index * 3]]);
+    }
 }
