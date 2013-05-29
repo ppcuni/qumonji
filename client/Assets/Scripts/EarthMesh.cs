@@ -9,8 +9,8 @@ public class EarthMesh : MonoBehaviour
 
     protected Vector3 centerOffset;
 
-    protected int gridRow = 10;
-    protected int gridColumn = 10;
+    protected int gridRow = 20;
+    protected int gridColumn = 20;
     protected float sideLength = 2.0f;
 
     public int GridRow { get { return gridRow; } }
