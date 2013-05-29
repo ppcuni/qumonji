@@ -40,20 +40,7 @@ public class EarthMeshBuilder : EarthMesh
             index += 6;
         }
 
-        Mesh mesh = Filter.mesh;
-
-        mesh.Clear();
-
-        mesh.vertices = vertices;
-        mesh.uv = uvs;
-        mesh.normals = normals;
-        mesh.triangles = indices;
-
-        mesh.RecalculateBounds();
-
-        Filter.sharedMesh.name = "Earth";
-
-        GetComponent<MeshCollider>().sharedMesh = Filter.mesh;
+        UpdateMesh();
     }
 
     private void UP1(int index)
@@ -62,14 +49,7 @@ public class EarthMeshBuilder : EarthMesh
 
         vertices[mesh.triangles[index * 3]].y += 0.05f;
 
-        mesh.Clear();
-
-        mesh.vertices = vertices;
-        mesh.uv = uvs;
-        mesh.normals = normals;
-        mesh.triangles = indices;
-
-        mesh.RecalculateBounds();
+        UpdateMesh();
     }
 
     private void UP2(int index)
@@ -81,14 +61,7 @@ public class EarthMeshBuilder : EarthMesh
         vertices[mesh.triangles[index * 3 + 2]].y += 0.1f;
         vertices[mesh.triangles[index * 3 + 5]].y += 0.1f;
 
-        mesh.Clear();
-
-        mesh.vertices = vertices;
-        mesh.uv = uvs;
-        mesh.normals = normals;
-        mesh.triangles = indices;
-
-        mesh.RecalculateBounds();
+        UpdateMesh();
     }
 
     private void DOWN1(int index)
@@ -97,14 +70,7 @@ public class EarthMeshBuilder : EarthMesh
 
         vertices[mesh.triangles[index * 3]].y -= 0.1f;
 
-        mesh.Clear();
-
-        mesh.vertices = vertices;
-        mesh.uv = uvs;
-        mesh.normals = normals;
-        mesh.triangles = indices;
-
-        mesh.RecalculateBounds();
+        UpdateMesh();
     }
 
     private void DOWN2(int index)
@@ -116,6 +82,13 @@ public class EarthMeshBuilder : EarthMesh
         vertices[mesh.triangles[index * 3 + 2]].y -= 0.1f;
         vertices[mesh.triangles[index * 3 + 5]].y -= 0.1f;
 
+        UpdateMesh();
+    }
+
+    private void UpdateMesh()
+    {
+        Mesh mesh = Filter.mesh;
+
         mesh.Clear();
 
         mesh.vertices = vertices;
@@ -124,5 +97,9 @@ public class EarthMeshBuilder : EarthMesh
         mesh.triangles = indices;
 
         mesh.RecalculateBounds();
+        mesh.Optimize();
+
+        GetComponent<MeshCollider>().sharedMesh = null;
+        GetComponent<MeshCollider>().sharedMesh = Filter.mesh;
     }
 }
