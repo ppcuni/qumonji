@@ -10,7 +10,7 @@ public class CameraControl : MonoBehaviour
     private float distance = 20.0f;
 
     [SerializeField]
-    private float dy = 1.0f;
+    private float dy = 0.0f;
 
     private float x = 0.0f;
     private float y = 0.0f;
@@ -28,6 +28,8 @@ public class CameraControl : MonoBehaviour
         }
 
         UpdatePosition();
+
+        distance -= Input.GetAxis("Mouse ScrollWheel") * 10;
 	}
 
     private void UpdateRotation()
