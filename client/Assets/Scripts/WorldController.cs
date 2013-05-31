@@ -22,9 +22,10 @@ public class WorldController : MonoBehaviour
 
     void Update()
     {
+        int layerMask = 1 << 8;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
-        if (Physics.Raycast(ray, out hitInfo, float.MaxValue))
+        if (Physics.Raycast(ray, out hitInfo, float.MaxValue, layerMask))
         {
             if (Input.GetMouseButton(0))
             {
