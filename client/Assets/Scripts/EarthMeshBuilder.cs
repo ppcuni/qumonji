@@ -105,14 +105,21 @@ public class EarthMeshBuilder : EarthMesh
 
     private void DisplayEditGrid(int index)
     {
+        if (index % 2 != 0) index -= 1;
+
         Mesh mesh = Filter.mesh;
 
         var lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.SetVertexCount(5);
+        lineRenderer.SetVertexCount(9);
         lineRenderer.SetPosition(0, vertices[mesh.triangles[index * 3]]);
         lineRenderer.SetPosition(1, vertices[mesh.triangles[index * 3 + 1]]);
         lineRenderer.SetPosition(2, vertices[mesh.triangles[index * 3 + 2]]);
         lineRenderer.SetPosition(3, vertices[mesh.triangles[index * 3 + 5]]);
         lineRenderer.SetPosition(4, vertices[mesh.triangles[index * 3]]);
+
+        lineRenderer.SetPosition(5, vertices[mesh.triangles[(index - 2) * 3 + 1]]);
+        lineRenderer.SetPosition(6, vertices[mesh.triangles[(index - 2) * 3 + 2]]);
+        lineRenderer.SetPosition(7, vertices[mesh.triangles[(index - 2) * 3 + 1]]);
+        lineRenderer.SetPosition(8, vertices[mesh.triangles[(index - 2) * 3]]);
     }
 }
