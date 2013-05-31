@@ -12,6 +12,12 @@ public class CameraControl : MonoBehaviour
     [SerializeField]
     private float dy = 0.0f;
 
+    [SerializeField]
+    private float xSpeed = 100.0f;
+
+    [SerializeField]
+    private float ySpeed = 100.0f;
+
     private float x = 0.0f;
     private float y = 0.0f;
 
@@ -34,8 +40,8 @@ public class CameraControl : MonoBehaviour
 
     private void UpdateRotation()
     {
-        x += Input.GetAxis("Mouse X") * 100.0f * 0.1f;
-        y -= Input.GetAxis("Mouse Y") * 100.0f * 0.1f;
+        x += Input.GetAxis("Mouse X") * xSpeed * 0.1f;
+        y -= Input.GetAxis("Mouse Y") * ySpeed * 0.1f;
 
         transform.rotation = Quaternion.Euler(y, x, 0);
     }
