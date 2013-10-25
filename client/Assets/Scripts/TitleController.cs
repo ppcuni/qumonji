@@ -7,7 +7,7 @@ public class TitleController : MonoBehaviour
     {
         GUI.BeginGroup(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 50, 100, 100));
 
-        GUI.Box(new Rect(0, 0, 100, 100), "gumonji");
+        GUI.Box(new Rect(0, 0, 100, 100), "qumonji");
 
         if (GUI.Button (new Rect (10,40,80,30), "start"))
         {
