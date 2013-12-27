@@ -5,10 +5,11 @@ public class WorldController : MonoBehaviour
 {
     private GameObject earth;
 
-    private EditMode editMode = EditMode.UP1;
+    private EditMode editMode = EditMode.NONE;
 
     public enum EditMode
     {
+        NONE,
         UP1,
         UP2,
         DOWN1,
