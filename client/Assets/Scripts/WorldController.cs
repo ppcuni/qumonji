@@ -53,15 +53,23 @@ public class WorldController : MonoBehaviour
     void OnGUI()
     {
         if (GUI.Button(new Rect(10, 10, 80, 30), "UP1"))
+        {
             editMode = EditMode.UP1;
+        }
 
         if (GUI.Button(new Rect(100, 10, 80, 30), "UP2"))
+        {
             editMode = EditMode.UP2;
+        }
 
         if (GUI.Button(new Rect(190, 10, 80, 30), "DOWN1"))
+        {
             editMode = EditMode.DOWN1;
+        }
 
         if (GUI.Button(new Rect(280, 10, 80, 30), "DOWN2"))
+        {
             editMode = EditMode.DOWN2;
+        }
     }
 }
